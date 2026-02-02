@@ -164,7 +164,21 @@
     .btn-icon svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none; }
     .btn-primary { background: var(--primary); color: #000 !important; border: none; box-shadow: 0 0 10px rgba(0, 245, 255, 0.4); }
     #btnVoice.listening { background: var(--danger); box-shadow: 0 0 15px var(--danger); animation: pulse 1s infinite; color: white !important; }
-
+body.field-closed .input-row {
+      z-index: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      transition: 
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        z-index 0s linear 0.3s;
+    }
+    body:not(.field-closed) .input-dock {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
     /* Drawers */
     .drawer { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 100; opacity: 0; pointer-events: none; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; }
     .drawer.open { opacity: 1; pointer-events: auto; }
